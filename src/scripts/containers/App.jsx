@@ -55,15 +55,23 @@
 // }
 
 // export default connect(({todo}) => todo)(App);
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import User from '../components/User';
-import Page from '../components/Page';
-import * as pageActions from '../actions/PageActions';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import User from "../components/User";
+import Page from "../components/Page";
+import * as pageActions from "../actions/PageActions";
 
 
 class App extends Component {
+
+    static propTypes = {
+        user: PropTypes.object,
+        page: PropTypes.object,
+        pageActions: PropTypes.object
+    };
+
     render() {
         const { user, page } = this.props
         const { setYear } = this.props.pageActions
